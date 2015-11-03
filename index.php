@@ -4,17 +4,28 @@ include_once './src/Epi.php';
 Epi::setPath('base', './src');
 Epi::init('api');
 
+/*라우팅*/
+getRoute()->get('/', 'showEndpoints');//시작점(말단) - ex)c언어 main메서드 
+getRoute()->run();
+/*
+ * ******************************************************************************************
+ * Define functions and classes which are executed by EpiCode based on the $_['routes'] array
+ * ******************************************************************************************
+ */
 
-/*<?php
-echo "Hello World, 안녕 주부타<br />"; //echo는 프린트
-echo "<div style='color:red'>하이루~</div>";
+function showEndpoints()
+{
+	/*$str="이연재";
+	  echo "$str"; str이 출력
+	  echo '$str'; 이연재가 출력*/
 
-for( $i =0; $i<100; $i++){
-		echo "아하하하하하하하핳<br>";
-		?>
-		우하하<?=$i?><br>//php에서 가장 많이 사용하는 것 : 변수 출력
-		<?php
+	echo '빠라바라밤 API <br>';
+    echo '<ul>
+          <li><a href="/">/</a> -> (home)</li>
+          <li><a href="/version">/version</a> -> (print the version of the api)</li>
+          <li><a href="/users">/users</a> -> (print each user)</li>
+        </ul>';
 }
 
-phpinfo(); //서버에 있는 php 정보를 모두 보여줌
-?>*/
+?>
+
