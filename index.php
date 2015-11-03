@@ -35,11 +35,11 @@ function showVersion(){
 }
 
 function getUserList(){
-	return array(
-		array('name' => '이연재'),
-		array('name' => '윤서영'),
-		array('name' => '허하진')
-		);
+  return array(
+    array('username' => 'jmathai'),
+    array('username' => 'stevejobs'),
+    array('username' => 'billgates')
+  );
 }
 
 ?>
