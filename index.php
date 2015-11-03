@@ -6,6 +6,7 @@ Epi::init('api');
 
 /*라우팅*/
 getRoute()->get('/', 'showEndpoints');//시작점(말단) - ex)c언어 main메서드 
+getRoute()->get('/version', 'showVersion');
 getRoute()->run();
 /*
  * ******************************************************************************************
@@ -27,5 +28,8 @@ function showEndpoints()
         </ul>';
 }
 
-?>
+function showVersion(){
+	return 5;
+}
 
+?>
