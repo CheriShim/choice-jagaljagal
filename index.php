@@ -7,7 +7,8 @@ Epi::init('api');
 /*라우팅*/
 getRoute()->get('/', 'showEndpoints');//시작점(말단) - ex)c언어 main메서드 
 getRoute()->get('/version', 'showVersion');
-getRoute()->get('/users', 'getUserList',EpiApi::external);
+getRoute()->get('/params', 'getResult',EpiApi::external);
+getRoute()->get('/users', 'getQuestionList',EpiApi::external);
 
 getRoute()->run();
 /*
@@ -34,11 +35,23 @@ function showVersion(){
 	echo 5;
 }
 
-function getUserList(){
+function getQuestionList(){
   return array(
-    array('username' => 'jmathai','ANon'=>'검정색 빵이 햄버거','BNon'=>'검정 국물인 라면' ),
-    array('username' => 'stevejobs'),
-    array('username' => 'billgates')
+    array('질문번호'=> 'Q01','AQuest'=>'검정색 빵이 햄버거','BQuest'=>'검정 국물인 라면','날짜'=>'2015.10.27' ),
+    array('질문번호'=> 'Q02','AQuest'=>'세계최고오글말투의 연인','BQuest'=>'모든대답이 단답인 연인','날짜'=>'2015.10.28' ),
+    array('질문번호'=> 'Q03','AQuest'=>'시험끝나고는 꿀잠','BQuest'=>'시험끝나고 놀러가자','날짜'=>'2015.10.29' ),
+    array('질문번호'=> 'Q04','AQuest'=>'슬플때는 잔잔한노래','BQuest'=>'슬플때는 신나는노래','날짜'=>'2015.10.30' ),
+    array('질문번호'=> 'Q05','AQuest'=>'오래달리기 ','BQuest'=>'윗몸일으키기','날짜'=>'2015.10,31' ),
+    array('질문번호'=> 'Q06','AQuest'=>'달달한 100일 연애','BQuest'=>'눈빛만봐도 아는 10년 연애','날짜'=>'2015.11.01' ),
+    array('질문번호'=> 'Q07','AQuest'=>'매력적인 무쌍','BQuest'=>'예쁜 쌍꺼풀','날짜'=>'2015.11.02' ),
+    array('질문번호'=> 'Q08','AQuest'=>'배고픈 하루','BQuest'=>'심심한 하루','날짜'=>'2015.11.03' ),
+    array('질문번호'=> 'Q09','AQuest'=>'아이폰','BQuest'=>'갤럭시','날짜'=>'2015.11.04' ),
+    array('질문번호'=> 'Q10','AQuest'=>'고대의 아름다움,유럽','BQuest'=>'편안한 휴양지,동남아','날짜'=>'2015.11.05' ),
+    array('질문번호'=> 'Q11','AQuest'=>'삻은 과목 먼저','BQuest'=>'좋은 과목 먼저','날짜'=>'2015.11.06' ),
+    array('질문번호'=> 'Q12','AQuest'=>'연세대','BQuest'=>'고려대','날짜'=>'2015.11.07' ),
+    array('질문번호'=> 'Q13','AQuest'=>'아날로그적인 문자','BQuest'=>'디지털적인 카톡','날짜'=>'2015.11.08' ),
+    array('질문번호'=> 'Q14','AQuest'=>'여름의 수영장','BQuest'=>'겨울의 스키장','날짜'=>'2015.11.09' ),
+
   );
 }
 
