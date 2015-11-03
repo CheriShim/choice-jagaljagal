@@ -36,7 +36,7 @@ function showVersion(){
 
 function getUserList(){
   return array(
-    array('username' => 'jmathai','ANon'==>'검정색 빵이 햄버거','BNon'==>'검정 국물인 라면' ),
+    array('username' => 'jmathai','ANon'=>'검정색 빵이 햄버거','BNon'=>'검정 국물인 라면' ),
     array('username' => 'stevejobs'),
     array('username' => 'billgates')
   );
