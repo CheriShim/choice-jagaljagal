@@ -29,7 +29,7 @@ function showEndpoints()
 }
 
 function showVersion(){
-	return 5;
+	echo 5;
 }
 
 ?>
