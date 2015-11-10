@@ -4,11 +4,8 @@ include_once './src/Epi.php';
 Epi::setPath('base', './src');
 Epi::init('api');
 
-/*라우팅*/
-getRoute()->get('/', 'showEndpoints');//시작점(말단) - ex)c언어 main메서드 
-getRoute()->get('/version', 'showVersion');
-getRoute()->get('/params', 'getResult',EpiApi::external);
-getRoute()->get('/users', 'getQuestionList',EpiApi::external);
+getRoute()->get('/question', 'get_question', EpiApi::external);
+getRoute()->get('/results/?(\d+)?/?(\d+)?', 'get_result_list', EpiApi::external);
 
 getRoute()->run();
 /*
@@ -16,6 +13,18 @@ getRoute()->run();
  * Define functions and classes which are executed by EpiCode based on the $_['routes'] array
  * ******************************************************************************************
  */
+
+
+function get_question(){
+	$item = array(
+			'id' => 0, 
+			'sa' => '짬뽕',
+			'sb' => '짜장면',
+			'pubdate' => '2015-10-10'
+		);
+  return $item;
+}
+
 
 function showEndpoints()
 {
@@ -58,7 +67,18 @@ function getResult(){
   return array(
      array('결과번호'=> 'R01','ACount'=>'0','BCount'=>'0','날짜'=>'2015.10.27','질문번호'=>'Q01'),
 	 array('결과번호'=> 'R02','ACount'=>'0','BCount'=>'0','날짜'=>'2015.10.28','질문번호'=>'Q02'),
-     array('결과번호'=> 'R03','ACount'=>'0','BCount'=>'0','날짜'=>'2015.10.29','질문번호'=>'Q03'), array('결과번호'=> 'R04','ACount'=>'0','BCount'=>'0','날짜'=>'2015.10.30','질문번호'=>'Q04'), array('결과번호'=> 'R05','ACount'=>'0','BCount'=>'0','날짜'=>'2015.10.31','질문번호'=>'Q05'), array('결과번호'=> 'R06','ACount'=>'0','BCount'=>'0','날짜'=>'2015.11.01','질문번호'=>'Q06'), array('결과번호'=> 'R07','ACount'=>'0','BCount'=>'0','날짜'=>'2015.11.02','질문번호'=>'Q07'), array('결과번호'=> 'R08','ACount'=>'0','BCount'=>'0','날짜'=>'2015.11.03','질문번호'=>'Q08'), array('결과번호'=> 'R09','ACount'=>'0','BCount'=>'0','날짜'=>'2015.11.04','질문번호'=>'Q09'), array('결과번호'=> 'R10','ACount'=>'0','BCount'=>'0','날짜'=>'2015.11.05','질문번호'=>'Q10'), array('결과번호'=> 'R11','ACount'=>'0','BCount'=>'0','날짜'=>'2015.11.06','질문번호'=>'Q11'), array('결과번호'=> 'R12','ACount'=>'0','BCount'=>'0','날짜'=>'2015.11.07','질문번호'=>'Q12'), array('결과번호'=> 'R13','ACount'=>'0','BCount'=>'0','날짜'=>'2015.11.08','질문번호'=>'Q13'), array('결과번호'=> 'R14','ACount'=>'0','BCount'=>'0','날짜'=>'2015.11.09','질문번호'=>'Q14'),
+     array('결과번호'=> 'R03','ACount'=>'0','BCount'=>'0','날짜'=>'2015.10.29','질문번호'=>'Q03'), 
+	  array('결과번호'=> 'R04','ACount'=>'0','BCount'=>'0','날짜'=>'2015.10.30','질문번호'=>'Q04'),
+	  array('결과번호'=> 'R05','ACount'=>'0','BCount'=>'0','날짜'=>'2015.10.31','질문번호'=>'Q05'),
+	  array('결과번호'=> 'R06','ACount'=>'0','BCount'=>'0','날짜'=>'2015.11.01','질문번호'=>'Q06'),
+	  array('결과번호'=> 'R07','ACount'=>'0','BCount'=>'0','날짜'=>'2015.11.02','질문번호'=>'Q07'),
+	  array('결과번호'=> 'R08','ACount'=>'0','BCount'=>'0','날짜'=>'2015.11.03','질문번호'=>'Q08'),
+	  array('결과번호'=> 'R09','ACount'=>'0','BCount'=>'0','날짜'=>'2015.11.04','질문번호'=>'Q09'),
+	  array('결과번호'=> 'R10','ACount'=>'0','BCount'=>'0','날짜'=>'2015.11.05','질문번호'=>'Q10'),
+	  array('결과번호'=> 'R11','ACount'=>'0','BCount'=>'0','날짜'=>'2015.11.06','질문번호'=>'Q11'),
+	  array('결과번호'=> 'R12','ACount'=>'0','BCount'=>'0','날짜'=>'2015.11.07','질문번호'=>'Q12'), 
+	  array('결과번호'=> 'R13','ACount'=>'0','BCount'=>'0','날짜'=>'2015.11.08','질문번호'=>'Q13'), 
+	  array('결과번호'=> 'R14','ACount'=>'0','BCount'=>'0','날짜'=>'2015.11.09','질문번호'=>'Q14'),
   );
 }
 
