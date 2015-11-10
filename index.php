@@ -28,44 +28,19 @@ function get_question(){
 
 function get_result_list( $count = 10, $page = 0 ){
 	$items = array();
-
-	array_push( $items,
-		array(
-				'id' => 0, 
-				'sa' => '짬뽕',
-				'sb' => '짜장면',
-				'pubdate' => '2015-10-10', 
-				'cnt_a' => 101312,
-				'cnt_b' => 123
-			),
-		array(
-				'id' => 2, 
-				'sa' => '짬뽕',
-				'sb' => '짜장면',
-				'pubdate' => '2015-10-10', 
-				'cnt_a' => 101312,
-				'cnt_b' => 123
-			),
-
-		array(
-				'id' => 3, 
-				'sa' => '짬뽕',
-				'sb' => '짜장면',
-				'pubdate' => '2015-10-10', 
-				'cnt_a' => 101312,
-				'cnt_b' => 123
-			),
-
-		array(
-				'id' => 4, 
-				'sa' => '짬뽕',
-				'sb' => '짜장면',
-				'pubdate' => '2015-10-10', 
-				'cnt_a' => 101312,
-				'cnt_b' => 123
-			),
-
-	);
+	for( $i = 0; $i < $count ; $i ++){
+		array_push( $items,
+			array(
+					'id' => $i, 
+					'sa' => '짬뽕',
+					'sb' => '짜장면',
+					'pubdate' => '2015-10-10', 
+					'cnt_a' => 101312,
+					'cnt_b' => 123
+				)
+			);
+`	}
+	
 	return $items;
 }
 
