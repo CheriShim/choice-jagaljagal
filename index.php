@@ -39,7 +39,7 @@ function get_result_list( $count = 10, $page = 0 ){
 					'cnt_b' => 123
 				)
 			);
-`	}
+	}
 	
 	return $items;
 }
