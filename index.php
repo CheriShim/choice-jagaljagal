@@ -44,7 +44,7 @@ function get_result_list( $count = 10, $page = 0 ){
 	$r = getDatabase()->all( 'SELECT id, situation_a, situation_b, published_date FROM questions where published_date < date(now()) order by id desc limit ' . $page . ', ' . $count );
 
 	$items = array();
-	for( $i = 0; $i < $r.length ; $i ++){
+	for( $i = 0; $i < count($r) ; $i ++){
 		$rs = $r[$i];
 		array_push( $items,
 			array(
