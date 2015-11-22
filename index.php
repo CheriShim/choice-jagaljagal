@@ -39,16 +39,21 @@ function get_question(){
 
 
 function get_result_list( $count = 10, $page = 0 ){
+
+	getDatabase()->execute('SET NAMES utf8');
+	$r = getDatabase()->all( 'SELECT id, situation_a, situation_b, published_date FROM questions where published_date < date(now()) order by id desc limit ' . $count . ', ' . $page );
+
 	$items = array();
 	for( $i = 0; $i < $count ; $i ++){
+		$rs = $r[$i];
 		array_push( $items,
 			array(
-					'id' => $i, 
-					'sa' => '짬뽕',
-					'sb' => '짜장면',
-					'pubdate' => '2015-10-10', 
-					'cnt_a' => 101312,
-					'cnt_b' => 123
+				'id' => $rs['id'], 
+				'situation_a' => $rs['situation_a'],
+				'situation_b' => $rs['situation_b'],
+				'published_date' => $rs['published_date']
+				'cnt_a' => 10,
+				'cnt_b' => 123
 				)
 			);
 	}
