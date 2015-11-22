@@ -27,7 +27,7 @@ getRoute()->run();
 function get_question(){
 
 	getDatabase()->execute('SET NAMES utf8');
-	$rs = getDatabase()->one( 'SELECT id, situation_a, situation_b, published_date FROM question order by id desc limit 1;');
+	$rs = getDatabase()->one( 'SELECT id, situation_a, situation_b, published_date FROM questions where published_date = date(now()) order by id desc limit 1;');
 	$item = array(
 			'id' => $rs['id'], 
 			'situation_a' => $rs['situation_a'],
