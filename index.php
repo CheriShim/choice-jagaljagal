@@ -72,7 +72,7 @@ function get_result_list( $count = 10, $page = 0 ){
 				break;
 			}
 		}
-	
+	}
 	return $items;
 }
 
