@@ -41,10 +41,10 @@ function get_question(){
 function get_result_list( $count = 10, $page = 0 ){
 
 	getDatabase()->execute('SET NAMES utf8');
-	$r = getDatabase()->all( 'SELECT id, situation_a, situation_b, published_date FROM questions where published_date < date(now()) order by id desc limit ' . $count . ', ' . $page );
+	$r = getDatabase()->all( 'SELECT id, situation_a, situation_b, published_date FROM questions where published_date < date(now()) order by id desc limit ' . $page . ', ' . $count );
 
 	$items = array();
-	for( $i = 0; $i < $count ; $i ++){
+	for( $i = 0; $i < $r.length ; $i ++){
 		$rs = $r[$i];
 		array_push( $items,
 			array(
