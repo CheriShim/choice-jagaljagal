@@ -57,6 +57,21 @@ function get_result_list( $count = 10, $page = 0 ){
 				)
 			);
 	}
+
+	$r = getDatabase()->all( 'SELECT question_id , selected_situation,  count(selected_situation) as cnt FROM answers where question_id < (select id from questions where published_date = date(now()) ) group by question_id, selected_situation order by question_id limit ' . $page . ', ' . $count * 2 );
+
+	$counts = array();
+
+	for( $i = 0; $i < count($r) ; $i ++){
+		$rs = $r[$i];
+		
+		for( $j = 0; $j < count($items); $j ++){
+			$item = $items[$j];
+			if($item['id'] == $rs['question_id']){
+				$items[$j]['cnt_'.$rs['selected_situation'] ] = $rs['cnt'];
+				break;
+			}
+		}
 	
 	return $items;
 }
