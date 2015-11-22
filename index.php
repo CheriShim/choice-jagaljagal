@@ -51,7 +51,7 @@ function get_result_list( $count = 10, $page = 0 ){
 				'id' => $rs['id'], 
 				'situation_a' => $rs['situation_a'],
 				'situation_b' => $rs['situation_b'],
-				'published_date' => $rs['published_date']
+				'published_date' => $rs['published_date'],
 				'cnt_a' => 10,
 				'cnt_b' => 123
 				)
