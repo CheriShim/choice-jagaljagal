@@ -27,7 +27,7 @@ function vote(){
 	$item = array();
 	if(isset($_POST['selected_situation']) && isset($_POST['question_id'])){
 		getDatabase()->execute('SET NAMES utf8');
-		$r = getDatabase()->one( 'SELECT count(id) as cnt FROM questions where published_date = date(now()) id = '.$_POST['question_id'].' limit 1;');
+		$r = getDatabase()->one( 'SELECT count(id) as cnt FROM questions where published_date = date(now()) and id = '.$_POST['question_id'].' limit 1;');
 		if($r['cnt'] == 1){
 			getDatabase()->execute( 'insert into answers values (null, ' . $_POST['question_id'] . ', "' . $_POST['selected_situation'] . '", now(), "'.$_SERVER['REMOTE_ADDR'].'"; ');
 			$item = array ( 'status' => 'ok' );
