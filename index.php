@@ -3,8 +3,17 @@
 include_once './src/Epi.php';
 Epi::setPath('base', './src');
 Epi::init('api');
+Epi::init('route','database');
+define('DB_HOST', getenv('OPENSHIFT_MYSQL_DB_HOST'));
+define('DB_PORT',getenv('OPENSHIFT_MYSQL_DB_PORT')); 
+define('DB_USER',getenv('OPENSHIFT_MYSQL_DB_USERNAME'));
+define('DB_PASS',getenv('OPENSHIFT_MYSQL_DB_PASSWORD'));
+define('DB_NAME',getenv('OPENSHIFT_GEAR_NAME'));
+EpiDatabase::employ('mysql', DB_NAME, DB_HOST, DB_USER, DB_PASS); 
+
 
 getRoute()->get('/question', 'get_question', EpiApi::external);
+getRoute()->post('/question', 'vote', EpiApi::external);
 getRoute()->get('/results/?(\d+)?/?(\d+)?', 'get_result_list', EpiApi::external);
 
 getRoute()->run();
@@ -16,11 +25,14 @@ getRoute()->run();
 
 
 function get_question(){
+
+	getDatabase()->execute('SET NAMES utf8');
+	$rs = getDatabase()->one( 'SELECT id, situation_a, situation_b, published_date FROM question order by id desc limit 1;');
 	$item = array(
-			'id' => 0, 
-			'sa' => '짬뽕',
-			'sb' => '짜장면',
-			'pubdate' => '2015-10-10'
+			'id' => $rs['id'], 
+			'situation_a' => $rs['situation_a'],
+			'situation_b' => $rs['situation_b'],
+			'published_date' => $rs['published_date']
 		);
   return $item;
 }
